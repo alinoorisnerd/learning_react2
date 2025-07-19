@@ -12,7 +12,7 @@ app.listen(port, ()=>{
     console.log("your server has started.")
 });
 
-function check4Password(req, next){
+function check4Password(req,res, next){
     if ( req.body['password'] == "nigasaurus" ){
         password_approved = true;
     } else {
@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 
 app.get('/', (req,res)=>{
-    res.send (__dirname+ "/index.html");
+    res.sendFile(__dirname+ "/index.html");
     console.log(req.rawHeaders);
 });
 
